@@ -10,17 +10,16 @@ const adapter = new PrismaPg({
 
 const prisma = new PrismaClient({ adapter });
 
-async function main() {
-  const user = await prisma.user.create({
-    data: {
-      username: "shriyu",
-      email: "shriyu@example.com",
-      fullname: "Shriyash Deshmukh",
-      bio: "Learning Prisma",
-    },
-  });
 
-  console.log(user);
+
+async function main() {
+    const Updatedusers  = await prisma.user.update({
+        where : {email: "aarav@example.com"},
+        data : {bio: "building cool projects",
+            isPrivate: true}
+    
+    })
+    cosnole.log(Updatedusers)
 }
 
 main()
